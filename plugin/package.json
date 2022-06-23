@@ -1,0 +1,25 @@
+{
+  "name": "@anyline/anyline-sdk-react-native",
+  "version": "0.3.1-alpha",
+  "description": "A plugin for connecting Anyline with React-Native",
+  "keywords": [
+    "react-native",
+    "reactnative",
+    "anyline",
+    "ocr"
+  ],
+  "homepage": "https://github.com/Anyline/anyline-ocr-react-native-module#readme",
+  "bugs": {
+    "url": "https://anyline.atlassian.net/servicedesk/customer/portal/2/group/-1"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anyline/anyline-ocr-react-native-module.git"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Patrick Fekete"
+}
