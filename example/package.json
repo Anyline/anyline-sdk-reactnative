@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@anyline/anyline-sdk-react-native": "../plugin",
+    "@anyline/anyline-sdk-react-native": "^0.3.2",
     "example": "file:",
     "react": "17.0.2",
     "react-native": "0.68.2"
