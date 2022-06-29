@@ -49,7 +49,7 @@ public class ReactScanView extends ScanView {
                 rctEventEmitter.receiveEvent(
                         getId(),
                         "onResult",
-                        getResultMap(scanResult)
+                        getResultMap(scanResult, true)
                 );
             });
 
@@ -58,22 +58,22 @@ public class ReactScanView extends ScanView {
                         rctEventEmitter.receiveEvent(
                                 getId(),
                                 "onContinuousResult",
-                                getResultMap(scanResult)
+                                getResultMap(scanResult, false)
                         );
                     });
         }
     }
 
     @NonNull
-    private WritableMap getResultMap(@NonNull ScanResult scanResult) {
+    private WritableMap getResultMap(@NonNull ScanResult scanResult, boolean shouldSaveImage) {
         WritableMap writableMap = Arguments.createMap();
-        writableMap.putString("result", getResultJson(scanResult));
+        writableMap.putString("result", getResultJson(scanResult, shouldSaveImage));
         writableMap.putInt("confidence", scanResult.getConfidence() != null ? scanResult.getConfidence() : -1);
         return writableMap;
     }
 
     @NonNull
-    private String getResultJson(@NonNull ScanResult scanResult) {
+    private String getResultJson(@NonNull ScanResult scanResult, boolean shouldSaveImage) {
         JSONObject jsonObject = new JSONObject();
 
         if (scanResult instanceof BarcodeScanResult) {
@@ -87,11 +87,11 @@ public class ReactScanView extends ScanView {
 
                 jsonObject.put("result", barcodes);
 
-                if (scanResult.getCutoutImage() != null) {
+                if (scanResult.getCutoutImage() != null && shouldSaveImage) {
                     jsonObject.put("cutoutImage", saveImage(scanResult.getCutoutImage()));
                 }
 
-                if (scanResult.getFullImage() != null) {
+                if (scanResult.getFullImage() != null && shouldSaveImage) {
                     jsonObject.put("fullImage", saveImage(scanResult.getFullImage()));
                 }
             } catch (JSONException | IOException e) {

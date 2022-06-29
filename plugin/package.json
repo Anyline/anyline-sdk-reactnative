@@ -1,6 +1,6 @@
 {
   "name": "@anyline/anyline-sdk-react-native",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A plugin for connecting Anyline with React-Native",
   "keywords": [
     "react-native",
